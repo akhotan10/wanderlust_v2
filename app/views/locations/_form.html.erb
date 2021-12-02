@@ -16,7 +16,7 @@
 
     <%= f.label :location_type %>
     <!-- Input for location_type start -->
-    <%= f.number_field :location_type, class: location_type_class, placeholder: "Enter location type" %>
+    <%= f.select :location_type, options_for_select(Location.location_types.keys), {}, class: "form-control" %>
     <!-- Input for location_type end -->
     <% if location_type_was_invalid %>
       <% location.errors.full_messages_for(:location_type).each do |message| %>
