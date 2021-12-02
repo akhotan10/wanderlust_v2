@@ -4,14 +4,12 @@ class TripsController < ApplicationController
 
   before_action :set_trip, only: %i[show edit update destroy]
 
-  # GET /trips
   def index
     @q = Trip.ransack(params[:q])
     @trips = @q.result(distinct: true).includes(:locations, :dinings,
                                                 :activities, :highlights, :user).page(params[:page]).per(10)
   end
 
-  # GET /trips/1
   def show
     @highlight = Highlight.new
     @activity = Activity.new
@@ -19,15 +17,12 @@ class TripsController < ApplicationController
     @location = Location.new
   end
 
-  # GET /trips/new
   def new
     @trip = Trip.new
   end
 
-  # GET /trips/1/edit
   def edit; end
 
-  # POST /trips
   def create
     @trip = Trip.new(trip_params)
 
@@ -43,7 +38,6 @@ class TripsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /trips/1
   def update
     if @trip.update(trip_params)
       redirect_to @trip, notice: "Trip was successfully updated."
@@ -52,7 +46,6 @@ class TripsController < ApplicationController
     end
   end
 
-  # DELETE /trips/1
   def destroy
     @trip.destroy
     message = "Trip was successfully deleted."
@@ -73,12 +66,10 @@ class TripsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_trip
     @trip = Trip.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def trip_params
     params.require(:trip).permit(:title, :cover_photo, :start_date,
                                  :end_date, :photo_album_link, :user_id)
