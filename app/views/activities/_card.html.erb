@@ -17,7 +17,11 @@
 
       <dt>Trip</dt>
       <!-- Display trip_id start -->
-      <dd><%= activity.trip_id %></dd>
+      <dd>
+        <% if @activity.trip.present? %>
+          <%= link_to activity.trip, activity.trip %>
+        <% end %>
+      </dd>
       <!-- Display trip_id end -->
 
     </dl>

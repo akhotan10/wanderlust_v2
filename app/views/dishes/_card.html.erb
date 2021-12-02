@@ -12,7 +12,11 @@
 
       <dt>Dinings</dt>
       <!-- Display dinings_id start -->
-      <dd><%= dish.dinings_id %></dd>
+      <dd>
+        <% if @dish.dinings.present? %>
+          <%= link_to dish.dinings, dish.dinings %>
+        <% end %>
+      </dd>
       <!-- Display dinings_id end -->
 
     </dl>

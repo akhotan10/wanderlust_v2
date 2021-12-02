@@ -22,12 +22,20 @@
 
       <dt>Location</dt>
       <!-- Display location_id start -->
-      <dd><%= dining.location_id %></dd>
+      <dd>
+        <% if @dining.location.present? %>
+          <%= link_to dining.location, dining.location %>
+        <% end %>
+      </dd>
       <!-- Display location_id end -->
 
       <dt>Trip</dt>
       <!-- Display trip_id start -->
-      <dd><%= dining.trip_id %></dd>
+      <dd>
+        <% if @dining.trip.present? %>
+          <%= link_to dining.trip, dining.trip %>
+        <% end %>
+      </dd>
       <!-- Display trip_id end -->
 
     </dl>
