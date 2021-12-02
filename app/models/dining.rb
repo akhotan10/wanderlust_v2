@@ -7,6 +7,8 @@ class Dining < ApplicationRecord
 
   # Validations
 
+  validates :dining_name, :presence => { :message => "Please enter a name" }
+
   validates :dining_type, :presence => { :message => "Please select a type" }
 
   validates :rating, :presence => { :message => "Please enter a rating" }
