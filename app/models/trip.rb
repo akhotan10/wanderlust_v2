@@ -1,6 +1,9 @@
 class Trip < ApplicationRecord
   # Direct associations
 
+  has_many   :dinings,
+             :dependent => :destroy
+
   has_many   :locations,
              :dependent => :destroy
 
