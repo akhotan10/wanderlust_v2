@@ -1,52 +1,30 @@
-<!-- Form dining start -->
 <%= form_with(model: @dining, local: true) do |f| %>
-<!-- Form dining end -->
 
-  <!-- Label and input for dining_type start -->
   <div class="form-group">
     <%= f.label :dining_type %>
 
-    <!-- Input for dining_type start -->
     <%= f.select :dining_type, options_for_select(Dining.dining_types.keys), {}, class: "form-control" %>
-    <!-- Input for dining_type end -->
   </div>
-  <!-- Label and input for dining_type end -->
 
-  <!-- Label and input for dining_name start -->
   <div class="form-group">
     <%= f.label :dining_name %>
 
-    <!-- Input for dining_name start -->
     <%= f.text_field :dining_name, class: "form-control" %>
-    <!-- Input for dining_name end -->
   </div>
-  <!-- Label and input for dining_name end -->
 
-  <!-- Label and input for rating start -->
   <div class="form-group">
     <%= f.label :rating %>
 
-    <!-- Input for rating start -->
     <%= f.text_field :rating, class: "form-control" %>
-    <!-- Input for rating end -->
   </div>
-  <!-- Label and input for rating end -->
 
-  <!-- Label and input for location_id start -->
-  <!-- Input for location_id start -->
   <%= f.hidden_field :location_id, value: @location.id %>
-  <!-- Input for location_id end -->
-  <!-- Label and input for location_id end -->
 
-  <!-- Label and input for trip_id start -->
   <div class="form-group">
     <%= f.label :trip_id %>
 
-    <!-- Input for trip_id start -->
     <%= f.collection_select :trip_id, Trip.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for trip_id end -->
   </div>
-  <!-- Label and input for trip_id end -->
 
   <%= f.submit "Create dining", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

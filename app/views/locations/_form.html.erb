@@ -1,7 +1,6 @@
 <% was_validated = location.errors.any? %>
 
 <%= form_with(model: location, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for location_type start -->
   <div class="form-group">
     <% location_type_class = "form-control" %>
     <% location_type_was_invalid = location.errors.include?(:location_type) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :location_type %>
-    <!-- Input for location_type start -->
     <%= f.select :location_type, options_for_select(Location.location_types.keys), {}, class: "form-control" %>
-    <!-- Input for location_type end -->
     <% if location_type_was_invalid %>
       <% location.errors.full_messages_for(:location_type).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for location_type end -->
-  <!-- Label and input for location_name start -->
   <div class="form-group">
     <% location_name_class = "form-control" %>
     <% location_name_was_invalid = location.errors.include?(:location_name) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :location_name %>
-    <!-- Input for location_name start -->
     <%= f.text_field :location_name, class: location_name_class, placeholder: "Enter location name" %>
-    <!-- Input for location_name end -->
     <% if location_name_was_invalid %>
       <% location.errors.full_messages_for(:location_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for location_name end -->
-  <!-- Label and input for trip_id start -->
   <div class="form-group">
     <% trip_class = "form-control" %>
     <% trip_was_invalid = location.errors.include?(:trip) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :trip_id %>
-    <!-- Input for trip_id start -->
     <%= f.collection_select :trip_id, Trip.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for trip_id end -->
     <% if trip_was_invalid %>
       <% location.errors.full_messages_for(:trip).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for trip_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

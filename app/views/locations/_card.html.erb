@@ -6,23 +6,17 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Location type</dt>
-      <!-- Display location_type start -->
       <dd><%= location.location_type %></dd>
-      <!-- Display location_type end -->
 
       <dt>Location name</dt>
-      <!-- Display location_name start -->
       <dd><%= location.location_name %></dd>
-      <!-- Display location_name end -->
 
       <dt>Trip</dt>
-      <!-- Display trip_id start -->
       <dd>
         <% if @location.trip.present? %>
           <%= link_to location.trip, location.trip %>
         <% end %>
       </dd>
-      <!-- Display trip_id end -->
 
     </dl>
 
@@ -31,21 +25,17 @@
         <%= link_to_show_or_back location, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link location start -->
       <div class="col">
         <%= link_to edit_location_url(location), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link location end -->
 
-      <!-- Delete link location start -->
       <div class="col">
         <%= link_to location, method: :delete, data: { confirm: "Do you really want to delete this location?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link location end -->
     </div>
   </div>
 
