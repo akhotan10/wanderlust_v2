@@ -1,0 +1,61 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Dining #<%= dining.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Dining type</dt>
+      <!-- Display dining_type start -->
+      <dd><%= dining.dining_type %></dd>
+      <!-- Display dining_type end -->
+
+      <dt>Dining name</dt>
+      <!-- Display dining_name start -->
+      <dd><%= dining.dining_name %></dd>
+      <!-- Display dining_name end -->
+
+      <dt>Rating</dt>
+      <!-- Display rating start -->
+      <dd><%= dining.rating %></dd>
+      <!-- Display rating end -->
+
+      <dt>Location</dt>
+      <!-- Display location_id start -->
+      <dd><%= dining.location_id %></dd>
+      <!-- Display location_id end -->
+
+      <dt>Trip</dt>
+      <!-- Display trip_id start -->
+      <dd><%= dining.trip_id %></dd>
+      <!-- Display trip_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back dining, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link dining start -->
+      <div class="col">
+        <%= link_to edit_dining_url(dining), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link dining end -->
+
+      <!-- Delete link dining start -->
+      <div class="col">
+        <%= link_to dining, method: :delete, data: { confirm: "Do you really want to delete this dining?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link dining end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(dining.updated_at) %> ago
+  </div>
+</div>
