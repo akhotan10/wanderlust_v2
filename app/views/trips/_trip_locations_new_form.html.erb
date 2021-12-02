@@ -1,15 +1,15 @@
 <%= form_with(model: @location, local: true) do |f| %>
 
   <div class="form-group">
-    <%= f.label :location_type %>
+    <%= f.label :name %>
 
-    <%= f.select :location_type, options_for_select(Location.location_types.keys), {}, class: "form-control" %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :location_name %>
+    <%= f.label :location_type %>
 
-    <%= f.text_field :location_name, class: "form-control" %>
+    <%= f.select :location_type, options_for_select(Location.location_types.keys), {}, class: "form-control" %>
   </div>
 
   <%= f.hidden_field :trip_id, value: @trip.id %>

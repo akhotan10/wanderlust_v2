@@ -6,15 +6,15 @@ class TripsController < ApplicationController
 
   def index
     @q = Trip.ransack(params[:q])
-    @trips = @q.result(distinct: true).includes(:locations, :dinings,
-                                                :activities, :highlights, :user).page(params[:page]).per(10)
+    @trips = @q.result(distinct: true).includes(:activities, :highlights,
+                                                :locations, :dining_experiences, :user).page(params[:page]).per(10)
   end
 
   def show
+    @dining_experience = DiningExperience.new
+    @location = Location.new
     @highlight = Highlight.new
     @activity = Activity.new
-    @dining = Dining.new
-    @location = Location.new
   end
 
   def new

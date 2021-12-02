@@ -1,5 +1,10 @@
-<%= search_form_for @q, :class => collapse_search_form, :id => "dinings_filters" do |f| %>
+<%= search_form_for @q, :class => collapse_search_form, :id => "dining_experiences_filters" do |f| %>
   <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
+  </div>
 
   <div class="form-group">
     <%= f.label :rating, "Rating" %>
@@ -11,11 +16,6 @@
         <%= f.text_field :rating_lteq, :class => "form-control", :placeholder => "Rating less than or equal to" %>
       </div>
     </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :dining_name_cont, "Dining name contains" %>
-    <%= f.text_field :dining_name_cont, :class => "form-control", :placeholder => "Dining name contains" %>
   </div>
 
   <div class="form-group">
@@ -65,6 +65,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :location_name_cont, "Location name contains" %>
+    <%= f.text_field :location_name_cont, :class => "form-control", :placeholder => "Location name contains" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :dishes_name_cont, "Dishes name contains" %>
     <%= f.text_field :dishes_name_cont, :class => "form-control", :placeholder => "Dishes name contains" %>
   </div>
@@ -72,10 +77,10 @@
 
   <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
-  <a href="/dinings" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+  <a href="/dining_experiences" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
 
 <% end %>
 
-<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#dinings_filters">
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#dining_experiences_filters">
   Show filters
 </a>

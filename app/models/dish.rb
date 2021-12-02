@@ -2,7 +2,7 @@ class Dish < ApplicationRecord
   # Direct associations
 
   belongs_to :dinings,
-             class_name: "Dining"
+             class_name: "DiningExperience"
 
   # Indirect associations
 

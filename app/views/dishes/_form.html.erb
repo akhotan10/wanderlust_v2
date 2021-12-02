@@ -36,7 +36,7 @@
     <% end %>
 
     <%= f.label :dinings_id %>
-    <%= f.collection_select :dinings_id, Dining.all, :id, :to_s, {}, class: "form-control" %>
+    <%= f.collection_select :dinings_id, DiningExperience.all, :id, :to_s, {}, class: "form-control" %>
     <% if dining_was_invalid %>
       <% dish.errors.full_messages_for(:dining).each do |message| %>
         <div class="invalid-feedback d-flex">

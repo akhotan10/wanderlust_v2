@@ -1,22 +1,22 @@
-<% was_validated = dining.errors.any? %>
+<% was_validated = dining_experience.errors.any? %>
 
-<%= form_with(model: dining, local: true, novalidate: true, class: "mb-3") do |f| %>
+<%= form_with(model: dining_experience, local: true, novalidate: true, class: "mb-3") do |f| %>
   <div class="form-group">
-    <% dining_type_class = "form-control" %>
-    <% dining_type_was_invalid = dining.errors.include?(:dining_type) %>
+    <% name_class = "form-control" %>
+    <% name_was_invalid = dining_experience.errors.include?(:name) %>
 
     <% if was_validated %>
-      <% if dining_type_was_invalid %>
-        <% dining_type_class << " is-invalid" %>
+      <% if name_was_invalid %>
+        <% name_class << " is-invalid" %>
       <% else %>
-        <% dining_type_class << " is-valid" %>
+        <% name_class << " is-valid" %>
       <% end %>
     <% end %>
 
-    <%= f.label :dining_type %>
-    <%= f.select :dining_type, options_for_select(Dining.dining_types.keys), {}, class: "form-control" %>
-    <% if dining_type_was_invalid %>
-      <% dining.errors.full_messages_for(:dining_type).each do |message| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
+    <% if name_was_invalid %>
+      <% dining_experience.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>
@@ -24,21 +24,21 @@
     <% end %>
   </div>
   <div class="form-group">
-    <% dining_name_class = "form-control" %>
-    <% dining_name_was_invalid = dining.errors.include?(:dining_name) %>
+    <% type_of_dining_class = "form-control" %>
+    <% type_of_dining_was_invalid = dining_experience.errors.include?(:type_of_dining) %>
 
     <% if was_validated %>
-      <% if dining_name_was_invalid %>
-        <% dining_name_class << " is-invalid" %>
+      <% if type_of_dining_was_invalid %>
+        <% type_of_dining_class << " is-invalid" %>
       <% else %>
-        <% dining_name_class << " is-valid" %>
+        <% type_of_dining_class << " is-valid" %>
       <% end %>
     <% end %>
 
-    <%= f.label :dining_name %>
-    <%= f.text_field :dining_name, class: dining_name_class, placeholder: "Enter dining name" %>
-    <% if dining_name_was_invalid %>
-      <% dining.errors.full_messages_for(:dining_name).each do |message| %>
+    <%= f.label :type_of_dining %>
+    <%= f.select :type_of_dining, options_for_select(DiningExperience.type_of_dinings.keys), {}, class: "form-control" %>
+    <% if type_of_dining_was_invalid %>
+      <% dining_experience.errors.full_messages_for(:type_of_dining).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>
@@ -47,7 +47,7 @@
   </div>
   <div class="form-group">
     <% rating_class = "form-control" %>
-    <% rating_was_invalid = dining.errors.include?(:rating) %>
+    <% rating_was_invalid = dining_experience.errors.include?(:rating) %>
 
     <% if was_validated %>
       <% if rating_was_invalid %>
@@ -60,7 +60,7 @@
     <%= f.label :rating %>
     <%= f.number_field :rating, class: rating_class, placeholder: "Enter rating" %>
     <% if rating_was_invalid %>
-      <% dining.errors.full_messages_for(:rating).each do |message| %>
+      <% dining_experience.errors.full_messages_for(:rating).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>
@@ -69,7 +69,7 @@
   </div>
   <div class="form-group">
     <% location_class = "form-control" %>
-    <% location_was_invalid = dining.errors.include?(:location) %>
+    <% location_was_invalid = dining_experience.errors.include?(:location) %>
 
     <% if was_validated %>
       <% if location_was_invalid %>
@@ -82,7 +82,7 @@
     <%= f.label :location_id %>
     <%= f.collection_select :location_id, Location.all, :id, :to_s, {}, class: "form-control" %>
     <% if location_was_invalid %>
-      <% dining.errors.full_messages_for(:location).each do |message| %>
+      <% dining_experience.errors.full_messages_for(:location).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>
@@ -91,7 +91,7 @@
   </div>
   <div class="form-group">
     <% trip_class = "form-control" %>
-    <% trip_was_invalid = dining.errors.include?(:trip) %>
+    <% trip_was_invalid = dining_experience.errors.include?(:trip) %>
 
     <% if was_validated %>
       <% if trip_was_invalid %>
@@ -104,7 +104,7 @@
     <%= f.label :trip_id %>
     <%= f.collection_select :trip_id, Trip.all, :id, :to_s, {}, class: "form-control" %>
     <% if trip_was_invalid %>
-      <% dining.errors.full_messages_for(:trip).each do |message| %>
+      <% dining_experience.errors.full_messages_for(:trip).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>

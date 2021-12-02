@@ -1,9 +1,9 @@
 <div class="row mb-3">
   <div class="col-md-12">
     <h1 class="display-4">
-      Dinings
+      Dining Experiences
 
-      <%= link_to new_dining_path, class: "btn btn-lg btn-outline-secondary" do %>
+      <%= link_to new_dining_experience_path, class: "btn btn-lg btn-outline-secondary" do %>
         <i class="fas fa-plus fa-fw"></i>
       <% end %>
     </h1>
@@ -12,7 +12,7 @@
 
 <div class="row">
   <div class="col-md-12 mb-3">
-    <%= render partial: "dinings/dinings_search_form" %>
+    <%= render partial: "dining_experiences/dining_experiences_search_form" %>
   </div>
 </div>
 
@@ -23,18 +23,18 @@
   <div class="col-md-8">
     <div class="card">
       <h1 class="card-header h4 d-flex align-items-center justify-content-between">
-        Dinings
+        Dining Experiences
 
-        <%= link_to new_dining_path, class: "btn btn-sm btn-outline-secondary" do %>
+        <%= link_to new_dining_experience_path, class: "btn btn-sm btn-outline-secondary" do %>
           <i class="fas fa-plus fa-fw"></i>
         <% end %>
       </h1>
 
       <div class="list-group list-group-flush">
-        <%= render collection: @dinings, partial: "list_item", as: :dining %>
+        <%= render collection: @dining_experiences, partial: "list_item", as: :dining_experience %>
       </div>
       <div class="card-footer d-flex justify-content-center">
-        <%= paginate @dinings, theme: 'twitter-bootstrap-4' %>
+        <%= paginate @dining_experiences, theme: 'twitter-bootstrap-4' %>
       </div>
 
     </div>

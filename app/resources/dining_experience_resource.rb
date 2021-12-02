@@ -1,9 +1,10 @@
-class DiningResource < ApplicationResource
+class DiningExperienceResource < ApplicationResource
   attribute :id, :integer, writable: false
   attribute :created_at, :datetime, writable: false
   attribute :updated_at, :datetime, writable: false
-  attribute :dining_type, :string_enum, allow: Dining.dining_types.keys
-  attribute :dining_name, :string
+  attribute :name, :string
+  attribute :type_of_dining, :string_enum,
+            allow: DiningExperience.type_of_dinings.keys
   attribute :rating, :integer
   attribute :location_id, :integer
   attribute :trip_id, :integer

@@ -13,13 +13,13 @@ class TripResource < ApplicationResource
 
   belongs_to :user
 
+  has_many   :dining_experiences
+
+  has_many   :locations
+
   has_many   :highlights
 
   has_many   :activities
-
-  has_many   :dinings
-
-  has_many   :locations
 
   # Indirect associations
 end

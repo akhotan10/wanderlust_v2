@@ -5,16 +5,16 @@ class Trip < ApplicationRecord
 
   belongs_to :user
 
+  has_many   :dining_experiences,
+             dependent: :destroy
+
+  has_many   :locations,
+             dependent: :destroy
+
   has_many   :highlights,
              dependent: :destroy
 
   has_many   :activities,
-             dependent: :destroy
-
-  has_many   :dinings,
-             dependent: :destroy
-
-  has_many   :locations,
              dependent: :destroy
 
   # Indirect associations
