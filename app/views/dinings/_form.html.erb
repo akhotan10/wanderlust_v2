@@ -16,7 +16,7 @@
 
     <%= f.label :dining_type %>
     <!-- Input for dining_type start -->
-    <%= f.number_field :dining_type, class: dining_type_class, placeholder: "Enter dining type" %>
+    <%= f.select :dining_type, options_for_select(Dining.dining_types.keys), {}, class: "form-control" %>
     <!-- Input for dining_type end -->
     <% if dining_type_was_invalid %>
       <% dining.errors.full_messages_for(:dining_type).each do |message| %>

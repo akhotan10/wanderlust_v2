@@ -7,7 +7,7 @@
     <%= f.label :dining_type %>
 
     <!-- Input for dining_type start -->
-    <%= f.text_field :dining_type, class: "form-control" %>
+    <%= f.select :dining_type, options_for_select(Dining.dining_types.keys), {}, class: "form-control" %>
     <!-- Input for dining_type end -->
   </div>
   <!-- Label and input for dining_type end -->
