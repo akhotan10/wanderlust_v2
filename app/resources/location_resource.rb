@@ -8,6 +8,8 @@ class LocationResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :trip
+
   # Indirect associations
 
 end

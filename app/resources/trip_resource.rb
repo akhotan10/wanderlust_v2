@@ -11,6 +11,8 @@ class TripResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :locations
+
   # Indirect associations
 
 end
