@@ -42,8 +42,14 @@ class LocationsController < ApplicationController
   # DELETE /locations/1
   def destroy
     @location.destroy
-    redirect_to locations_url, notice: 'Location was successfully destroyed.'
+    message = "Location was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to locations_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
