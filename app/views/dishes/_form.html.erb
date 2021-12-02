@@ -42,7 +42,7 @@
 
     <%= f.label :dinings_id %>
     <!-- Input for dinings_id start -->
-    <%= f.number_field :dinings_id, class: dining_class, placeholder: "Enter dining" %>
+    <%= f.collection_select :dinings_id, Dining.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for dinings_id end -->
     <% if dining_was_invalid %>
       <% dish.errors.full_messages_for(:dining).each do |message| %>
