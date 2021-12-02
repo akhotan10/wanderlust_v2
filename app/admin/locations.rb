@@ -1,5 +1,5 @@
 ActiveAdmin.register Location do
-  permit_params :location_type, :location_name, :trip_id
+  permit_params :name, :location_type, :trip_id
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

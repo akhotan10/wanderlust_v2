@@ -1,15 +1,15 @@
-<%= form_with(model: @dining, local: true) do |f| %>
+<%= form_with(model: @dining_experience, local: true) do |f| %>
 
   <div class="form-group">
-    <%= f.label :dining_type %>
+    <%= f.label :name %>
 
-    <%= f.select :dining_type, options_for_select(Dining.dining_types.keys), {}, class: "form-control" %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :dining_name %>
+    <%= f.label :type_of_dining %>
 
-    <%= f.text_field :dining_name, class: "form-control" %>
+    <%= f.select :type_of_dining, options_for_select(DiningExperience.type_of_dinings.keys), {}, class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -26,5 +26,5 @@
     <%= f.collection_select :trip_id, Trip.all, :id, :to_s, {}, class: "form-control" %>
   </div>
 
-  <%= f.submit "Create dining", class: "btn btn-block btn-outline-secondary" %>
+  <%= f.submit "Create dining experience", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

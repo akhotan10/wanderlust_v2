@@ -4,11 +4,11 @@ class LocationsController < ApplicationController
   def index
     @q = Location.ransack(params[:q])
     @locations = @q.result(distinct: true).includes(:trip,
-                                                    :dinings).page(params[:page]).per(10)
+                                                    :dining_experiences).page(params[:page]).per(10)
   end
 
   def show
-    @dining = Dining.new
+    @dining_experience = DiningExperience.new
   end
 
   def new
@@ -57,6 +57,6 @@ class LocationsController < ApplicationController
   end
 
   def location_params
-    params.require(:location).permit(:location_type, :location_name, :trip_id)
+    params.require(:location).permit(:name, :location_type, :trip_id)
   end
 end

@@ -2,8 +2,8 @@
   <p class="lead">Narrow results:</p>
 
   <div class="form-group">
-    <%= f.label :location_name_cont, "Location name contains" %>
-    <%= f.text_field :location_name_cont, :class => "form-control", :placeholder => "Location name contains" %>
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
   </div>
 
   <div class="form-group">
@@ -50,6 +50,11 @@
   <div class="form-group">
     <%= f.label :trip_title_cont, "Trip title contains" %>
     <%= f.text_field :trip_title_cont, :class => "form-control", :placeholder => "Trip title contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :dining_experiences_name_cont, "Dining experiences name contains" %>
+    <%= f.text_field :dining_experiences_name_cont, :class => "form-control", :placeholder => "Dining experiences name contains" %>
   </div>
 
 

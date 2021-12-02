@@ -1,10 +1,10 @@
 class Location < ApplicationRecord
-  enum location_type: { "country" => 0, "city" => 1, "neighborhood" => 2, "park" => 3,
-                        "other" => 4 }
+  enum location_type: { "country" => 0, "city" => 1, "neighborhood" => 2,
+                        "nature_park" => 3, "other" => 4 }
 
   # Direct associations
 
-  has_many   :dinings,
+  has_many   :dining_experiences,
              dependent: :destroy
 
   belongs_to :trip
@@ -13,9 +13,13 @@ class Location < ApplicationRecord
 
   # Validations
 
+  validates :location_type, presence: { message: "Please select a type" }
+
+  validates :name, presence: { message: "Please enter a name" }
+
   # Scopes
 
   def to_s
-    location_type
+    name
   end
 end

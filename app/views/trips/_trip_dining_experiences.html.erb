@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Dining Experiences
+
+    <a data-toggle="collapse" href="#trip_dining_experiences_new_form">
+      Add dining experience
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @trip.dining_experiences.each do |dining_experience| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <%= link_to dining_experience, dining_experience %>
+
+        <%= link_to dining_experience, method: :delete, data: { confirm: "Do you really want to delete this dining_experience" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="trip_dining_experiences_new_form">
+        <%= render partial: "trips/trip_dining_experiences_new_form" %>
+      </div>
+    </div>
+
+  </ul>
+</div>

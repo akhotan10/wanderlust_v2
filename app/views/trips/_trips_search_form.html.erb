@@ -143,6 +143,16 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :locations_name_cont, "Locations name contains" %>
+    <%= f.text_field :locations_name_cont, :class => "form-control", :placeholder => "Locations name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :dining_experiences_name_cont, "Dining experiences name contains" %>
+    <%= f.text_field :dining_experiences_name_cont, :class => "form-control", :placeholder => "Dining experiences name contains" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :user_email_cont, "User email contains" %>
     <%= f.text_field :user_email_cont, :class => "form-control", :placeholder => "User email contains" %>
   </div>

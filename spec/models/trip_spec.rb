@@ -4,13 +4,13 @@ RSpec.describe Trip, type: :model do
   describe "Direct Associations" do
     it { should belong_to(:user) }
 
+    it { should have_many(:dining_experiences) }
+
+    it { should have_many(:locations) }
+
     it { should have_many(:highlights) }
 
     it { should have_many(:activities) }
-
-    it { should have_many(:dinings) }
-
-    it { should have_many(:locations) }
   end
 
   describe "InDirect Associations" do

@@ -1,0 +1,55 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Dining Experience #<%= dining_experience.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Name</dt>
+      <dd><%= dining_experience.name %></dd>
+
+      <dt>Type of dining</dt>
+      <dd><%= dining_experience.type_of_dining %></dd>
+
+      <dt>Rating</dt>
+      <dd><%= dining_experience.rating %></dd>
+
+      <dt>Location</dt>
+      <dd>
+        <% if @dining_experience.location.present? %>
+          <%= link_to dining_experience.location, dining_experience.location %>
+        <% end %>
+      </dd>
+
+      <dt>Trip</dt>
+      <dd>
+        <% if @dining_experience.trip.present? %>
+          <%= link_to dining_experience.trip, dining_experience.trip %>
+        <% end %>
+      </dd>
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back dining_experience, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <div class="col">
+        <%= link_to edit_dining_experience_url(dining_experience), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+
+      <div class="col">
+        <%= link_to dining_experience, method: :delete, data: { confirm: "Do you really want to delete this dining_experience?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(dining_experience.updated_at) %> ago
+  </div>
+</div>
