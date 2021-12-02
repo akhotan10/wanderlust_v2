@@ -1,0 +1,16 @@
+class Location < ApplicationRecord
+  enum location_type: {"country"=>0, "city"=>1, "neighborhood"=>2, "park"=>3, "other"=>4} 
+
+  # Direct associations
+
+  # Indirect associations
+
+  # Validations
+
+  # Scopes
+
+  def to_s
+    location_type
+  end
+
+end
