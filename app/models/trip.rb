@@ -5,6 +5,8 @@ class Trip < ApplicationRecord
 
   # Validations
 
+  validates :start_date, :presence => { :message => "Please enter a start date" }
+
   validates :title, :presence => { :message => "Please enter a title" }
 
   # Scopes

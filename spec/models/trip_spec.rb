@@ -12,6 +12,8 @@ RSpec.describe Trip, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:start_date).with_message('Please enter a start date') }
+
     it { should validate_presence_of(:title).with_message('Please enter a title') }
 
     end
