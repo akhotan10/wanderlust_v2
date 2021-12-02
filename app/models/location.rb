@@ -3,6 +3,9 @@ class Location < ApplicationRecord
 
   # Direct associations
 
+  has_many   :dinings,
+             :dependent => :destroy
+
   belongs_to :trip
 
   # Indirect associations
