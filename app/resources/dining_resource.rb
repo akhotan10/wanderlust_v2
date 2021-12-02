@@ -10,6 +10,9 @@ class DiningResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :dishes,
+             foreign_key: :dinings_id
+
   belongs_to :location
 
   belongs_to :trip

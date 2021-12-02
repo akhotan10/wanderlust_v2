@@ -7,6 +7,9 @@ class DishResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :dinings,
+             resource: DiningResource
+
   # Indirect associations
 
 end
