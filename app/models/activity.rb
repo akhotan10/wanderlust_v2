@@ -5,6 +5,8 @@ class Activity < ApplicationRecord
 
   # Validations
 
+  validates :title, :presence => { :message => "Please enter a title" }
+
   # Scopes
 
   def to_s
