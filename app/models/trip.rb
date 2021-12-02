@@ -1,6 +1,8 @@
 class Trip < ApplicationRecord
   # Direct associations
 
+  belongs_to :user
+
   has_many   :highlights,
              :dependent => :destroy
 
