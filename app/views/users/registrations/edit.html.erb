@@ -144,6 +144,32 @@
             </small>
           </div>
 
+
+          <div class="form-group">
+            <% full_name_was_invalid = resource.errors.include?(:full_name) %>
+
+            <% full_name_class = "form-control" %>
+
+            <% if was_validated %>
+              <% if full_name_was_invalid %>
+                <% full_name_class << " is-invalid" %>
+              <% else %>
+                <% full_name_class << " is-valid" %>
+              <% end %>
+            <% end %>
+
+            <%= f.label :full_name %>
+
+            <%= f.text_field :full_name, :class => full_name_class, :placeholder => "Enter full name" %>
+
+            <% if full_name_was_invalid %>
+              <% resource.errors.full_messages_for(:full_name).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
           <%= f.submit "Update", class: "btn btn-block btn-outline-primary" %>
         <% end %>
 

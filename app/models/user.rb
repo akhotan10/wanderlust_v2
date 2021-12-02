@@ -9,6 +9,9 @@ class User < ApplicationRecord
 
   # Validations
 
+  validates :full_name,
+            presence: { message: "Please enter your full name" }
+
   # Scopes
 
   def to_s
