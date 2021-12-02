@@ -1,10 +1,11 @@
 class DiningsController < ApplicationController
-  before_action :set_dining, only: [:show, :edit, :update, :destroy]
+  before_action :set_dining, only: %i[show edit update destroy]
 
   # GET /dinings
   def index
     @q = Dining.ransack(params[:q])
-    @dinings = @q.result(:distinct => true).includes(:trip, :location, :dishes).page(params[:page]).per(10)
+    @dinings = @q.result(distinct: true).includes(:trip, :location,
+                                                  :dishes).page(params[:page]).per(10)
   end
 
   # GET /dinings/1
@@ -18,17 +19,16 @@ class DiningsController < ApplicationController
   end
 
   # GET /dinings/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /dinings
   def create
     @dining = Dining.new(dining_params)
 
     if @dining.save
-      message = 'Dining was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Dining was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @dining, notice: message
       end
@@ -40,7 +40,7 @@ class DiningsController < ApplicationController
   # PATCH/PUT /dinings/1
   def update
     if @dining.update(dining_params)
-      redirect_to @dining, notice: 'Dining was successfully updated.'
+      redirect_to @dining, notice: "Dining was successfully updated."
     else
       render :edit
     end
@@ -50,22 +50,23 @@ class DiningsController < ApplicationController
   def destroy
     @dining.destroy
     message = "Dining was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to dinings_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_dining
-      @dining = Dining.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def dining_params
-      params.require(:dining).permit(:dining_type, :dining_name, :rating, :location_id, :trip_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_dining
+    @dining = Dining.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def dining_params
+    params.require(:dining).permit(:dining_type, :dining_name, :rating,
+                                   :location_id, :trip_id)
+  end
 end

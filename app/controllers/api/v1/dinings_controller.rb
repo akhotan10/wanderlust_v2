@@ -13,7 +13,7 @@ class Api::V1::DiningsController < Api::V1::GraphitiController
     dining = DiningResource.build(params)
 
     if dining.save
-      render jsonapi: dining, status: 201
+      render jsonapi: dining, status: :created
     else
       render jsonapi_errors: dining
     end
@@ -33,7 +33,7 @@ class Api::V1::DiningsController < Api::V1::GraphitiController
     dining = DiningResource.find(params)
 
     if dining.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: dining
     end

@@ -6,31 +6,31 @@ class Trip < ApplicationRecord
   belongs_to :user
 
   has_many   :highlights,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :activities,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :dinings,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :locations,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   # Validations
 
-  validates :end_date, :presence => { :message => "Please enter an end date" }
+  validates :end_date, presence: { message: "Please enter an end date" }
 
-  validates :start_date, :presence => { :message => "Please enter a start date" }
+  validates :start_date,
+            presence: { message: "Please enter a start date" }
 
-  validates :title, :presence => { :message => "Please enter a title" }
+  validates :title, presence: { message: "Please enter a title" }
 
   # Scopes
 
   def to_s
     title
   end
-
 end

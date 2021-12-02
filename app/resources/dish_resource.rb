@@ -11,5 +11,4 @@ class DishResource < ApplicationResource
              resource: DiningResource
 
   # Indirect associations
-
 end

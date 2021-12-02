@@ -13,5 +13,4 @@ class LocationResource < ApplicationResource
   belongs_to :trip
 
   # Indirect associations
-
 end

@@ -11,5 +11,4 @@ class HighlightResource < ApplicationResource
   belongs_to :trip
 
   # Indirect associations
-
 end

@@ -1,20 +1,16 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Highlight, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should belong_to(:trip) }
+  end
 
-    end
+  describe "InDirect Associations" do
+  end
 
-    describe "InDirect Associations" do
-
-    end
-
-    describe "Validations" do
-
-    it { should validate_presence_of(:title).with_message('Please enter a title') }
-
-    end
+  describe "Validations" do
+    it {
+      should validate_presence_of(:title).with_message("Please enter a title")
+    }
+  end
 end

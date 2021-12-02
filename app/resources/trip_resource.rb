@@ -22,5 +22,4 @@ class TripResource < ApplicationResource
   has_many   :locations
 
   # Indirect associations
-
 end
