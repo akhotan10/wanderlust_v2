@@ -3,6 +3,10 @@ class Dining < ApplicationRecord
 
   # Direct associations
 
+  has_many   :dishes,
+             :foreign_key => "dinings_id",
+             :dependent => :destroy
+
   belongs_to :location
 
   belongs_to :trip

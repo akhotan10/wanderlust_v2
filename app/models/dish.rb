@@ -1,6 +1,9 @@
 class Dish < ApplicationRecord
   # Direct associations
 
+  belongs_to :dinings,
+             :class_name => "Dining"
+
   # Indirect associations
 
   # Validations
