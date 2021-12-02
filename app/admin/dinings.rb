@@ -1,5 +1,7 @@
 ActiveAdmin.register Dining do
 
+ permit_params :dining_type, :dining_name, :rating, :location_id, :trip_id
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
