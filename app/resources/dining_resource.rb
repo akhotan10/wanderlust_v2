@@ -10,6 +10,8 @@ class DiningResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :location
+
   belongs_to :trip
 
   # Indirect associations

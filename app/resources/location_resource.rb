@@ -8,6 +8,8 @@ class LocationResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :dinings
+
   belongs_to :trip
 
   # Indirect associations
