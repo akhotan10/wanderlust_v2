@@ -7,6 +7,8 @@ class Dining < ApplicationRecord
 
   # Validations
 
+  validates :rating, :presence => { :message => "Please enter a rating" }
+
   # Scopes
 
   def to_s
