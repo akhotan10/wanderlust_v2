@@ -9,5 +9,8 @@ RSpec.describe User, type: :model do
   end
 
   describe "Validations" do
+    it {
+      should validate_presence_of(:full_name).with_message("Please enter your full name")
+    }
   end
 end

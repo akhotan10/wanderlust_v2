@@ -9,10 +9,13 @@ class User < ApplicationRecord
 
   # Validations
 
+  validates :full_name,
+            presence: { message: "Please enter your full name" }
+
   # Scopes
 
   def to_s
-    email
+    full_name
   end
 
   # Include default devise modules. Others available are:
