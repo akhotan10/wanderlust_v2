@@ -1,0 +1,32 @@
+<!-- Form location start -->
+<%= form_with(model: @location, local: true) do |f| %>
+<!-- Form location end -->
+
+  <!-- Label and input for location_type start -->
+  <div class="form-group">
+    <%= f.label :location_type %>
+
+    <!-- Input for location_type start -->
+    <%= f.text_field :location_type, class: "form-control" %>
+    <!-- Input for location_type end -->
+  </div>
+  <!-- Label and input for location_type end -->
+
+  <!-- Label and input for location_name start -->
+  <div class="form-group">
+    <%= f.label :location_name %>
+
+    <!-- Input for location_name start -->
+    <%= f.text_field :location_name, class: "form-control" %>
+    <!-- Input for location_name end -->
+  </div>
+  <!-- Label and input for location_name end -->
+
+  <!-- Label and input for trip_id start -->
+  <!-- Input for trip_id start -->
+  <%= f.hidden_field :trip_id, value: @trip.id %>
+  <!-- Input for trip_id end -->
+  <!-- Label and input for trip_id end -->
+
+  <%= f.submit "Create location", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

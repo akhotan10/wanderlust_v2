@@ -8,6 +8,7 @@ class DiningsController < ApplicationController
 
   # GET /dinings/1
   def show
+    @dish = Dish.new
   end
 
   # GET /dinings/new
@@ -24,7 +25,12 @@ class DiningsController < ApplicationController
     @dining = Dining.new(dining_params)
 
     if @dining.save
-      redirect_to @dining, notice: 'Dining was successfully created.'
+      message = 'Dining was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @dining, notice: message
+      end
     else
       render :new
     end

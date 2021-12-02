@@ -8,6 +8,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/1
   def show
+    @dining = Dining.new
   end
 
   # GET /locations/new
@@ -24,7 +25,12 @@ class LocationsController < ApplicationController
     @location = Location.new(location_params)
 
     if @location.save
-      redirect_to @location, notice: 'Location was successfully created.'
+      message = 'Location was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @location, notice: message
+      end
     else
       render :new
     end
